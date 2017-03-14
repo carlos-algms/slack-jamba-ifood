@@ -1,0 +1,49 @@
+{
+  "name": "slack-jamba-ifood",
+  "version": "0.0.0",
+  "description": "A slack bot feature to automatically ask for food",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/grunt/bin/grunt protractor",
+    "postinstall": "node node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlos-algms/slack-jamba-ifood.git"
+  },
+  "keywords": [
+    "Slack",
+    "iFood"
+  ],
+  "author": "Carlos A. Gomes <carlos.algms@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carlos-algms/slack-jamba-ifood/issues"
+  },
+  "homepage": "https://github.com/carlos-algms/slack-jamba-ifood#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-open": "^0.2.3",
+    "grunt-protractor-runner": "^4.0.0",
+    "jasmine-core": "^2.5.2",
+    "jasmine-spec-reporter": "^3.2.0",
+    "load-grunt-tasks": "^3.5.2",
+    "lolex": "^1.6.0",
+    "mocha": "^3.2.0",
+    "protractor": "^5.1.1",
+    "protractor-jasmine2-screenshot-reporter": "^0.3.3",
+    "proxy-middleware": "^0.15.0",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
+    "time-grunt": "^1.4.0"
+  }
+}

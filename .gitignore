@@ -4,3 +4,5 @@ node_modules/
 bower_components/
 .idea/
 /*.iml
+/nbproject/private/
+nbproject/

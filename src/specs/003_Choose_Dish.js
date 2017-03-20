@@ -2,20 +2,34 @@ describe('Choose Dish', () => {
   it('Select the dish according to the user parameters', () => {
     browser.get('https://www.ifood.com.br/delivery/campinas-sp/jambalaya-refeicoes-jardim-flamboyant');
 
-    waitElementVisible($('#item-137740'));
+    waitElementVisible($('.verify[title*="MINI MINI"]'));
 
-    //$('#item-137740').click();
-    
-    $('.btn-add.cboxElement[title*="MINI MINI"]').click();
-   
+    $('.verify[title*="MINI MINI"]').click();
+
     waitElementVisible('#garnish-tab-0');
+
+
+    element(By.cssContainingText('strong.description', 'Carne de panela')).click();
     
-    $('li.li-garnish-137742').click();
+    $('#btn_0').click();
     
-    //element(By.cssContainingText('strong.description', 'Panqueca de frango')).click();
-    //var marker = $('[name="descriptionGarnishItem"][value="Panqueca de frango"]').getWebElement();
-    //marker.getDriver().findElement(by.css('[type="radio"]')).click();
-    //$(".description:contains('Panqueca de Frango')").click();
+    element(By.cssContainingText('strong.description', 'Sem guarnição')).click();
+    
+    $('#btn_1').click();
+    
+    element(By.cssContainingText('strong.description', 'Sem salada')).click();
+    
+    $('#btn_2').click();
+        
+    // element(By.cssContainingText('strong', 'Não Quero')).click();
+   
+    waitElementVisible($('#btn_3')).then(e => e.click());
+    
+    //element(By.cssContainingText('strong', 'Não Quero')).click();
+    
+    waitElementVisible($('#btn_4')).then(e => e.click());
+    
+    waitElementVisible($('div[title*="MINI MINI"'));
 
   });
 });

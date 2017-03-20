@@ -56,13 +56,15 @@ function configChai() {
 
 
 function waitElementVisible(target) {
-  return browser.wait(protractor.ExpectedConditions.visibilityOf(getElement(target)), 10000);
+  const elementTarget = getElement(target);
+  return browser.wait(protractor.ExpectedConditions.visibilityOf(elementTarget), 10000).then(res => elementTarget);
 }
 
 
 function waitElementDisapear(target) {
   const EC = protractor.ExpectedConditions;
-  return browser.wait(EC.not(EC.visibilityOf(getElement(target))), 10000);
+  const elementTarget = getElement(target);
+  return browser.wait(EC.not(EC.visibilityOf(elementTarget)), 10000).then(res => elementTarget);
 }
 
 

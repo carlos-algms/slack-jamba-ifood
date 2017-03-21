@@ -77,7 +77,8 @@ module.exports = (grunt) => {
               login: {
                 usuario: '706827', // TODO take the login credentials from STDIN
                 senha: '1234'
-              }
+              },
+              envprod: false
             }
           }
         }

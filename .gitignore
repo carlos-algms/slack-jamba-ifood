@@ -4,3 +4,9 @@ node_modules/
 bower_components/
 .idea/
 /*.iml
+/nbproject/private/
+nbproject/
+
+src/specs/\.003_Choose_Dish\.js\.un~
+
+*.js~

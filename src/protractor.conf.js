@@ -1,6 +1,5 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
-
 exports.config = {
   specs: [
     'specs/**/*.js',
@@ -10,6 +9,7 @@ exports.config = {
       browserName: 'chrome',
       count: 1,
       chromeOptions: {
+        //args: ['incognito'],
         prefs: {
           download: {
             prompt_for_download: false,
@@ -26,17 +26,14 @@ exports.config = {
     timeout: 4000
   },
   onPrepare
-  // seleniumAddress: 'http://localhost:4444/wd/hub', // grunt protractor launch protractor
+      // seleniumAddress: 'http://localhost:4444/wd/hub', // grunt protractor launch protractor
 };
-
-
 // //////////////////////////////////////
 
 
 function onPrepare() {
   browser.ignoreSynchronization = true;
   browser.driver.ignoreSynchronization = true;
-
   configChai();
   browser.manage().window().setSize(1600, 1000);
   global.waitElementVisible = waitElementVisible;
@@ -48,26 +45,26 @@ function configChai() {
   global.chai = chai;
   global.should = global.chai.should();
   global.chaiAsPromised = chaiAsPromised;
-
   global.chai.use(global.chaiAsPromised);
   global.jasmineExpect = global.expect;
-
   Object.defineProperty(
-    protractor.promise.Promise.prototype,
-    'should',
-    Object.getOwnPropertyDescriptor(Object.prototype, 'should')
-  );
+      protractor.promise.Promise.prototype,
+      'should',
+      Object.getOwnPropertyDescriptor(Object.prototype, 'should')
+      );
 }
 
 
 function waitElementVisible(target) {
-  return browser.wait(protractor.ExpectedConditions.presenceOf(getElement(target)), 10000);
+  const elementTarget = getElement(target);
+  return browser.wait(protractor.ExpectedConditions.visibilityOf(elementTarget), 10000).then(res => elementTarget);
 }
 
 
 function waitElementDisapear(target) {
   const EC = protractor.ExpectedConditions;
-  return browser.wait(EC.not(EC.presenceOf(getElement(target))), 10000);
+  const elementTarget = getElement(target);
+  return browser.wait(EC.not(EC.visibilityOf(elementTarget)), 10000).then(res => elementTarget);
 }
 
 

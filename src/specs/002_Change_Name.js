@@ -6,9 +6,9 @@ xdescribe('Change Username', () => {
 
     $('#name').clear().sendKeys('Luciano Castro');
     $('#save_data').click();
-    
+
     waitElementVisible($('#closeModal'));
     expect($('#closeModal').isPresent()).toBeTruthy();
-    
+
   });
 });

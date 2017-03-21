@@ -9,6 +9,5 @@ xdescribe('Change Username', () => {
 
     waitElementVisible($('#closeModal'));
     expect($('#closeModal').isPresent()).toBeTruthy();
-
   });
 });

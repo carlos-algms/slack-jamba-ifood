@@ -1,4 +1,4 @@
-/*global element By */
+/* global element By */
 
 describe('Choose Dish', () => {
   it('Select the dish according to the user parameters', () => {
@@ -27,12 +27,11 @@ describe('Choose Dish', () => {
 
     waitElementVisible($('#btn_3')).then(e => e.click());
 
-    //element(By.cssContainingText('strong', 'Não Quero')).click();
+    // element(By.cssContainingText('strong', 'Não Quero')).click();
 
     waitElementVisible($('#btn_4')).then(e => e.click());
 
     waitElementVisible($('div[title*="MINI MINI"'));
-
   });
 });
 
@@ -51,7 +50,5 @@ xdescribe('Choose Dish (China in Box)', () => {
     $('#btn_0').click();
 
     waitElementVisible($('div[title*="SALADA CIB CAMARÃO"'));
-
   });
 });
-

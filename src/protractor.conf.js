@@ -1,5 +1,6 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
+
 exports.config = {
   specs: [
     'specs/**/*.js',
@@ -9,7 +10,7 @@ exports.config = {
       browserName: 'chrome',
       count: 1,
       chromeOptions: {
-        //args: ['incognito'],
+        // args: ['incognito'],
         prefs: {
           download: {
             prompt_for_download: false,
@@ -51,24 +52,26 @@ function configChai() {
       protractor.promise.Promise.prototype,
       'should',
       Object.getOwnPropertyDescriptor(Object.prototype, 'should')
-      );
+    );
 }
 
 
 function waitElementVisible(target) {
+  const EC = protractor.ExpectedConditions;
   const elementTarget = getElement(target);
-  return browser.wait(protractor.ExpectedConditions.visibilityOf(elementTarget), 10000).then(res => elementTarget);
+  return browser.wait(EC.visibilityOf(elementTarget), 10000).then(() => elementTarget);
 }
 
 
 function waitElementDisapear(target) {
   const EC = protractor.ExpectedConditions;
   const elementTarget = getElement(target);
-  return browser.wait(EC.not(EC.visibilityOf(elementTarget)), 10000).then(res => elementTarget);
+  return browser.wait(EC.not(EC.visibilityOf(elementTarget)), 10000).then(() => elementTarget);
 }
 
 
 function getElement(target) {
+  // When you pass the return of By()
   if (target.using) {
     return element(target);
   }
@@ -77,5 +80,6 @@ function getElement(target) {
     return $(target);
   }
 
+  // It is already the result of element(By()) or $()
   return target;
 }

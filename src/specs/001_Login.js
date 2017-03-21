@@ -1,14 +1,16 @@
-xdescribe('Try to Login', () => {
+const LoginPage = require('../pages/LoginPage');
+
+fdescribe('Try to Login', () => {
   it('Enter the username and password', () => {
-    browser.get('https://www.ifood.com.br/entrar');
+    browser.get(LoginPage.url);
 
-    waitElementVisible($('#email_login'));
+    waitElementVisible(LoginPage.fields.email);
 
-    $('#email_login').sendKeys('fiaobot@gmail.com');
-    $('#password_login').sendKeys('Fi@o1234');
-    $('input[type="submit"][value="Entrar"]').click();
+    LoginPage.fields.email.sendKeys(browser.params.login.user);
+    LoginPage.fields.password.sendKeys(browser.params.login.password);
 
-    expect($('img[title="Foto Perfil"]').isPresent()).toBeTruthy();
+    LoginPage.buttons.login.click();
 
+    expect(LoginPage.profilePicture.isPresent()).toBeTruthy();
   });
 });

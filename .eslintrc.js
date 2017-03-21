@@ -17,7 +17,8 @@ module.exports = {
     "sinon": true,
     "inject": true,
     "moment": true,
-    "should": true
+    "should": true,
+    "waitElementVisible": true
   },
 
   "parserOptions": {

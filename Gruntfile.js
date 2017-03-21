@@ -75,8 +75,8 @@ module.exports = (grunt) => {
             baseUrl: '',
             params: {
               login: {
-                usuario: '706827', // TODO take the login credentials from STDIN
-                senha: '1234'
+                user: 'fiaobot@gmail.com', // TODO take the login credentials from STDIN
+                password: 'Fi@o1234'
               },
               envprod: false
             }

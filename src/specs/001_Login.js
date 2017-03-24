@@ -1,6 +1,6 @@
 const LoginPage = require('../pages/LoginPage');
 
-fdescribe('Try to Login', () => {
+describe('Try to Login', () => {
   it('Enter the username and password', () => {
     browser.get(LoginPage.url);
 

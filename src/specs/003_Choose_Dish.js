@@ -1,35 +1,34 @@
-/* global element By */
+/* global element, By, browser, waitElementVisible */
+
+const ChooseDishPage = require('../pages/ChooseDishPage');
 
 describe('Choose Dish', () => {
   it('Select the dish according to the user parameters', () => {
-    browser.get('https://www.ifood.com.br/delivery/campinas-sp/jambalaya-refeicoes-jardim-flamboyant');
+    browser.get(ChooseDishPage.url);
 
-    waitElementVisible($('.verify[title*="MINI MINI"]'));
+    waitElementVisible(ChooseDishPage.dishSizes.minimini).then(e => e.click());
 
-    $('.verify[title*="MINI MINI"]').click();
+    waitElementVisible(ChooseDishPage.buttons.nextButton);
 
-    waitElementVisible('#garnish-tab-0');
+    element(By.cssContainingText('strong.description', 'Ovos fritos')).click();
 
-
-    element(By.cssContainingText('strong.description', 'Rolinho de frango crocante')).click();
-
-    $('#btn_0').click();
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
     element(By.cssContainingText('strong.description', 'Sem guarnição')).click();
 
-    $('#btn_1').click();
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
     element(By.cssContainingText('strong.description', 'Sem salada')).click();
 
-    $('#btn_2').click();
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
     // element(By.cssContainingText('strong', 'Não Quero')).click();
 
-    waitElementVisible($('#btn_3')).then(e => e.click());
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
     // element(By.cssContainingText('strong', 'Não Quero')).click();
 
-    waitElementVisible($('#btn_4')).then(e => e.click());
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
     waitElementVisible($('div[title*="MINI MINI"'));
   });

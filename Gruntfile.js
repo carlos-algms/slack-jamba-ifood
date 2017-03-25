@@ -78,7 +78,12 @@ module.exports = (grunt) => {
                 user: 'fiaobot@gmail.com', // TODO take the login credentials from STDIN
                 password: 'Fi@o1234'
               },
-              envprod: false
+              envprod: false,
+              dishComment: 'comentário do silvião',
+              dishSize: 'MINI MINI',
+              dishOption: 'Ovos fritos',
+              dishSideDish: 'Batata Frita',
+              dishSalad: 'Alface'
             }
           }
         }

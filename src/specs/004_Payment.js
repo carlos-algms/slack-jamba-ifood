@@ -1,6 +1,6 @@
 const PaymentPage = require('../pages/PaymentPage');
 
-describe('Payment Method', () => {
+xdescribe('Payment Method', () => {
   it('Select the payment method and confirm the order', () => {
 
     waitElementVisible(PaymentPage.buttons.proceedToPayment).then(e => e.click());

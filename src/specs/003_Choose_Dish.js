@@ -2,7 +2,7 @@
 
 const ChooseDishPage = require('../pages/ChooseDishPage');
 
-describe('Choose Dish', () => {
+xdescribe('Choose Dish', () => {
   it('Select the dish according to the user parameters', () => {
     browser.get(ChooseDishPage.url);
 
@@ -34,11 +34,13 @@ describe('Choose Dish', () => {
   });
 });
 
-xdescribe('Choose Dish (China in Box)', () => {
+describe('Choose Dish (China in Box)', () => {
   it('Select the dish according to the user parameters', () => {
+    const dish = 'SALADA CIB CAMARÃO';
+
     browser.get('https://www.ifood.com.br/delivery/campinas-sp/china-in-box---cambui-cambui');
 
-    waitElementVisible($('.verify[title*="SALADA CIB CAMARÃO"]'));
+    waitElementVisible($('.verify[title*=' + dish + ']'));
 
     $('.verify[title*="SALADA CIB CAMARÃO"]').click();
 

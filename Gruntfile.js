@@ -80,9 +80,9 @@ module.exports = (grunt) => {
               },
               envprod: false,
               dishComment: 'comentário do silvião',
-              dishSize: 'MINI MINI',
+              dishSize: 'TODAS AS SALADAS',
               dishOption: 'Ovos fritos',
-              dishSideDish: 'Batata Frita',
+              dishSideDish: null,
               dishSalad: 'Alface'
             }
           }

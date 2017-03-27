@@ -45,5 +45,8 @@
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "time-grunt": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0"
   }
 }

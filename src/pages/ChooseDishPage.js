@@ -2,7 +2,7 @@ module.exports = {
   url: 'https://www.ifood.com.br/delivery/campinas-sp/jambalaya-refeicoes-jardim-flamboyant',
   buttons: {
     nextButton: $('div.tabPane[style*="block"] .btn.btn_next'),
-    addComment: $('a.ico-comments.popup-link[title*=\"' + browser.params.dishOption + '\"]'),
+    addComment: $(`a.ico-comments.popup-link[title*="${browser.params.dishSize}"]`),
     submitComment: $('div.popup-obs a.btn.addObs[title="Adicionar"]')
   },
   fields: {

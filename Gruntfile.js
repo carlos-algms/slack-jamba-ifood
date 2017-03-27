@@ -82,7 +82,7 @@ module.exports = (grunt) => {
               dishComment: 'comentário do silvião',
               dishSize: 'TODAS AS SALADAS',
               dishOption: 'Ovos fritos',
-              dishSideDish: null,
+              dishSideDish: 'Farofa',
               dishSalad: 'Alface'
             }
           }

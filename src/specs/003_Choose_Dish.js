@@ -1,24 +1,41 @@
 /* global element, By, browser, waitElementVisible */
 
-//const ChooseDishPage = require('../pages/ChooseDishPage');
+const ChooseDishPage = require('../pages/ChooseDishPage');
 
 describe('Choose Dish', () => {
   it('Select the dish according to the user parameters', () => {
     browser.get(ChooseDishPage.url);
+    
+    waitElementVisible(ChooseDishPage.buttons.addComment).then(e => e.click());
+    //waitElementVisible($('div#garnish a.ico-comments.popup-link[title*="TODAS AS SALADAS"]')).then(e => e.click());
+       
+    waitElementVisible(ChooseDishPage.buttons.submitComment);
+    
+    if(ChooseDishPage.dish.comment !== null)
+      ChooseDishPage.fields.commentArea.sendKeys(ChooseDishPage.dish.comment);
+    
+    ChooseDishPage.buttons.submitComment.click();
+    
+    waitElementVisible($('div#garnish'));
 
-    waitElementVisible(ChooseDishPage.dishSizes.minimini).then(e => e.click());
+    waitElementVisible(element(By.cssContainingText('div.tabPane[style*="block"] strong.description', ChooseDishPage.dish.option))).then(e => e.click());
+    //waitElementVisible($('div.tabPane[style*="block"] strong.description:contains(Ovos fritos)')).then(e => e.click());
 
-    waitElementVisible(ChooseDishPage.buttons.nextButton);
-
-    element(By.cssContainingText('strong.description', 'Ovos fritos')).click();
 
     waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
-    element(By.cssContainingText('strong.description', 'Sem guarnição')).click();
+    if(ChooseDishPage.dish.sideDish !== null)
+      waitElementVisible(element(By.cssContainingText('div#cboxLoadedContent strong.description', ChooseDishPage.dish.sideDish))).then(e => e.click());
+    else
+      waitElementVisible(element(By.cssContainingText('div#cboxLoadedContent strong.description', 'Sem guarnição'))).then(e => e.click());
 
     waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
-    element(By.cssContainingText('strong.description', 'Sem salada')).click();
+    if(ChooseDishPage.dish.salada !== null)
+      //waitElementVisible(element(By.cssContainingText('strong.description', ChooseDishPage.dish.salada))).then(e => e.click());
+      waitElementVisible(element(By.cssContainingText('div#cboxLoadedContent strong.description', 'Saladas diversas'))).then(e => e.click());
+    else    
+      waitElementVisible(element(By.cssContainingText('div#cboxLoadedContent strong.description', 'Sem salada'))).then(e => e.click());
 
     waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
@@ -30,7 +47,9 @@ describe('Choose Dish', () => {
 
     waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
-    waitElementVisible($('div[title*="MINI MINI"'));
+    waitElementVisible($('div[title*=\"' + ChooseDishPage.dish.option + '\"'));
+    
+    browser.sleep(5000);
   });
 });
 

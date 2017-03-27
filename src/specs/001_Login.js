@@ -1,7 +1,7 @@
 const LoginPage = require('../pages/LoginPage');
 const ChooseDishPage = require('../pages/ChooseDishPage');
 
-describe('Try to Login', () => {
+xdescribe('Try to Login', () => {
   it('Enter the username and password', () => {
     browser.get(LoginPage.url);
 
@@ -16,10 +16,10 @@ describe('Try to Login', () => {
   });
 });
 
-fdescribe('Test Function', () => {
+xdescribe('Test Function', () => {
   it('Function created in order to do protractor related tests', () => {
 
-    if(ChooseDishPage.dish.sideDish == null)
+    if(ChooseDishPage.dish.sideDish !== null)
       console.log('eh nulo');
     else
       console.log('sideDish: ' + ChooseDishPage.dish.sideDish);

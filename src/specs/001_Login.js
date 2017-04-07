@@ -16,10 +16,10 @@ describe('Try to Login', () => {
   });
 });
 
-xdescribe('Test Function', () => {
+fdescribe('Test Function', () => {
   it('Function created in order to do protractor related tests', () => {
 
-    if(ChooseDishPage.dish.sideDish !== null)
+    /*if(ChooseDishPage.dish.sideDish !== null)
       console.log('eh nulo');
     else
       console.log('sideDish: ' + ChooseDishPage.dish.sideDish);
@@ -30,7 +30,7 @@ xdescribe('Test Function', () => {
     var str1 = '@silviao pede ai mini mini, Bobó de frango, Chuchu refogado, Alface, comentario e ai silviao';
     var str2 = '@silviao pede ai mini mini, Bobó de frango';
     var str3 = '@silviao pede ai mini mini, Bobó de frango, comentario e ai silviao, salada Alface';
-    var pat = '^@silviao pede ai (mini mini|mini|todas as saladas), ([\\D\\s]+)(, (guarnicao|salada|comentario) [\\D\\s]+)*$';
+    var pat = '^@silviao pede ai (mini mini|mini|todas as saladas), ([\\D\\s]+)(, (guarnicao|salada|comentario) [\\D\\s]+)*$';*/
 
     //console.log(pedido.match(pattern));
     /*str1.match(pat).forEach(function (element, index){
@@ -47,12 +47,23 @@ xdescribe('Test Function', () => {
         console.log(index + ': ' + element);
     });*/
 
-    if(ChooseDishPage.dish.size == 'MINI MINI' || ChooseDishPage.dish.size == 'MINI')
+    /*if(ChooseDishPage.dish.size == 'MINI MINI' || ChooseDishPage.dish.size == 'MINI')
       console.log('mini mini ou mini');
     else if(ChooseDishPage.dish.size == 'TODAS AS SALADAS')
       console.log('todas as saladas');
     else if(ChooseDishPage.dish.size == 'FEIJOADA')
-      console.log('feijoada');
+      console.log('feijoada');*/
+    
+    var spawn = require('child_process').spawn;
+    var ls  = spawn('ls', ['-l']);
+    ls.stdout.on('data', function (data) {
+        console.log(data + 'rf');
+    });
+    
+    var ls2  = spawn('ls', ['-l', '--author']);
+    ls2.stdout.on('data', function (data) {
+        console.log(data + 'rf');
+    });
 
   });
 });

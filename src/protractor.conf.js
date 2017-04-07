@@ -24,7 +24,7 @@ exports.config = {
   framework: 'jasmine2',
   mochaOpts: {
     reporter: 'spec',
-    timeout: 4000
+    timeout: 10000
   },
   onPrepare
       // seleniumAddress: 'http://localhost:4444/wd/hub', // grunt protractor launch protractor

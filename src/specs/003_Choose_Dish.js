@@ -1,54 +1,66 @@
-/* global element By */
+/* global element, By, browser, waitElementVisible */
+
+const ChooseDishPage = require('../pages/ChooseDishPage');
 
 describe('Choose Dish', () => {
   it('Select the dish according to the user parameters', () => {
-    browser.get('https://www.ifood.com.br/delivery/campinas-sp/jambalaya-refeicoes-jardim-flamboyant');
+    browser.get(ChooseDishPage.url);
+    
+    waitElementVisible(ChooseDishPage.dish.tamanho).then(e => e.click());
+    
+    waitElementVisible(ChooseDishPage.buttons.submitComment);
+    
+    if(ChooseDishPage.dish.comentario !== null)
+      ChooseDishPage.fields.commentArea.sendKeys(ChooseDishPage.dish.comentario);
+    
+    ChooseDishPage.buttons.submitComment.click();
+    
+    waitElementVisible(ChooseDishPage.garnishTab);
 
-    waitElementVisible($('.verify[title*="MINI MINI"]'));
+    waitElementVisible(ChooseDishPage.dish.prato).then(e => e.click());
 
-    $('.verify[title*="MINI MINI"]').click();
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
-    waitElementVisible('#garnish-tab-0');
+    waitElementVisible(ChooseDishPage.dish.guarnicao).then(e => e.click());
 
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
-    element(By.cssContainingText('strong.description', 'Rolinho de frango crocante')).click();
+    waitElementVisible(ChooseDishPage.dish.salada).then(e => e.click());
 
-    $('#btn_0').click();
-
-    element(By.cssContainingText('strong.description', 'Sem guarnição')).click();
-
-    $('#btn_1').click();
-
-    element(By.cssContainingText('strong.description', 'Sem salada')).click();
-
-    $('#btn_2').click();
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
     // element(By.cssContainingText('strong', 'Não Quero')).click();
 
-    waitElementVisible($('#btn_3')).then(e => e.click());
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
     // element(By.cssContainingText('strong', 'Não Quero')).click();
 
-    waitElementVisible($('#btn_4')).then(e => e.click());
+    waitElementVisible(ChooseDishPage.buttons.nextButton).then(e => e.click());
 
-    waitElementVisible($('div[title*="MINI MINI"'));
+    waitElementVisible(ChooseDishPage.fields.assertionSelector);
+    
+    browser.sleep(5000);
   });
 });
 
 xdescribe('Choose Dish (China in Box)', () => {
   it('Select the dish according to the user parameters', () => {
+    const dish = 'SALADA CIB CAMARÃO';
+
     browser.get('https://www.ifood.com.br/delivery/campinas-sp/china-in-box---cambui-cambui');
 
-    waitElementVisible($('.verify[title*="SALADA CIB CAMARÃO"]'));
-
+    waitElementVisible($('.verify[title*=\"' + dish + '\"]'));
+    
     $('.verify[title*="SALADA CIB CAMARÃO"]').click();
 
-    waitElementVisible($('#garnish'));
+    browser.sleep(10000);
 
-    element(By.cssContainingText('strong.description', 'SEM MOLHO')).click();
+    //waitElementVisible($('#garnish'));
 
-    $('#btn_0').click();
+    //element(By.cssContainingText('strong.description', 'SEM MOLHO')).click();
 
-    waitElementVisible($('div[title*="SALADA CIB CAMARÃO"'));
+    //$('#btn_0').click();
+
+    //waitElementVisible($('div[title*="SALADA CIB CAMARÃO"'));
   });
 });
